@@ -4,7 +4,9 @@
 const BULB_LOCATION_MAPPINGS = {
     'aaaa::2a5:900:a1:23a8': 'Bathroom',
     'aaaa::2a5:900:b1:5d50': 'Kitchen',
-    'aaaa::2a5:900:f8:7029': 'Living Room'
+    'aaaa::2a5:900:f8:7029': 'Living Room',
+    'aaaa::2a5:900:8f:29ef': 'Living Room',
+    'aaaa::2a5:900:a4:25bc': 'Bathroom'
 }
 
 // mapping between presence tag IP address and person name
