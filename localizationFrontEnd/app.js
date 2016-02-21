@@ -7,10 +7,11 @@ var bodyParser = require('body-parser');
 var localization = require(__dirname + '/../sendbyte-tool/localization');
 var buildRoomMapping = require('./updateRooms').buildRoomMapping;
 var request = require('request');
+var roomMapping = { };
 
 setInterval(function() {
 	var mapping = localization.getPresenceRSSIMap();
-	var roomMapping = buildRoomMapping(mapping);
+	roomMapping = buildRoomMapping(mapping);
 
 	for(var personName in roomMapping) {
 		var roomName = roomMapping[personName];
@@ -48,6 +49,10 @@ app.get('/localizationMap', function(req, res) {
 app.get('/presenceMap', function(req, res) {
 	var presenceValue = localization.getPresenceRSSIMap();
 	res.status(200).send(presenceValue);
+})
+
+app.get('/personMap', function(req, res) {
+    res.status(200).send(roomMapping);
 })
 
 app.use(function(req, res, next) {
