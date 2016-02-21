@@ -1,0 +1,7 @@
+{
+  "name": "send-bytes-frz",
+  "version": "0.0.1",
+  "dependencies": {
+    "optparse": "~1.0.5"
+  }
+}

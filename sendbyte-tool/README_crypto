@@ -1,0 +1,8 @@
+#README#
+To integrate the crypto with nodejs. Need to do the following
+1. Generate the dll using 
+	$ sudo g++ -Wall -shared -fPIC -o crypto.so crypto.cpp
+2. Add the linking library path to the bashrc
+	$ export LD_LIBRARY_PATH=~/workspace/contiki-main/apps/frzprotocol/:$LD_LIBRARY_PATH
+2. Install the ref library
+	$ npm install ref
