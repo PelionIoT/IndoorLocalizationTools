@@ -1,0 +1,15 @@
+/* Styles go here */
+
+body{ background-color: ivory; }
+#canvas{border:1px solid blue;}
+h1{
+  size:1.5em;
+  font-family:trebuchet, verdana, sans-serif;
+  color: blue;
+}
+h3{
+  size:1em;
+  font-family:trebuchet, verdana, sans-serif;
+  color: blue;
+}
+

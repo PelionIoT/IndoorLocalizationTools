@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="plunker">
+
+  <head>
+    <script data-require="angular.js@1.4.0-rc.0" data-semver="1.4.0-rc.0" src="https://code.angularjs.org/1.4.0-rc.0/angular.js"></script>
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div ng-controller="MainController">
+      <h1>Web Demo: 6LoWPAN MESH MAP</h1>
+      <h3>WigWag</h3>
+      <canvas id="canvas" ng-click="doClick($event)" width="2000" height="2000"></canvas>
+      <form ng-submit='pushSixlbrConfig()'>
+      <div ng-repeat='(key, value) in sixlbrConfig' >
+        {{key}} <input ng-if= 'isNumber(value)' type='number' ng-model='sixlbrConfig[key]'>
+        <input ng-if= '!isNumber(value)' type='text' ng-model='sixlbrConfig[key]'>
+      </div>
+      <div ng-repeat='(key, value) in nvm_data' >
+        {{key}} <input ng-if= 'isNumber(value)' type='number' ng-model='nvm_data[key]'>
+        <input ng-if= '!isNumber(value)' type='text' ng-model='nvm_data[key]'>
+      </div>
+      <p>    Click <button type='submit'>here</button> to update sixlbr configuration.</p>
+      </form>
+    </div>
+  </body>
+
+</html>
+
