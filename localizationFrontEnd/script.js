@@ -1,5 +1,22 @@
 var app = angular.module('plunker', []);
 
+// mapping between bulb IP address and location name
+var BULB_LOCATION_MAPPINGS = {
+    'aaaa::2a5:900:a1:23a8': 'Bathroom',
+    'aaaa::2a5:900:b1:5d50': 'Kitchen',
+    'aaaa::2a5:900:f8:7029': 'Living Room',
+    'aaaa::2a5:900:8f:29ef': 'Living Room',
+    'aaaa::2a5:900:a4:25bc': 'Bathroom'
+}
+
+// mapping between presence tag IP address and person name
+var PRESENCE_TAG_PERSON_MAPPINGS = {
+    'aaaa::2a5:9ff:400:666': 'John',
+    'aaaa::2a5:9ff:400:667': 'Jordan',
+    'aaaa::2a5:9ff:400:668': 'Yash',
+    'aaaa::2a5:9ff:400:669': 'Wallet'
+}
+
 var getNearestNode = function(rssi_map) {
     var mappings = [ ];
 
@@ -96,12 +113,28 @@ app.controller('MainController', function($scope, $http) {
                         ctx.fillStyle="red";
                         ctx.fill();
                           ctx.font= font;
-                          ctx.fillText(key, m[key][0] - radius/2 , m[key][1] + 2*radius);
+                          ctx.fillText(BULB_LOCATION_MAPPINGS[key] + '(' + key + ')', m[key][0] - radius/2 , m[key][1] + 2*radius);
                           ctx.stroke();
 
                         drawEdge({x: root_x, y: root_y}, {x: m[key][0], y: m[key][1]}, rssi_map[key]);
                         n++;
                     });
+
+                    var i =0;
+                    Object.keys(personMap).forEach(function(personName){
+                          person[i] = personName;
+                          location[i] = personMap[personName];
+                          console.log('person: ' + person[i] + ' location ' + location[i]);
+
+
+                          ctx.beginPath();
+                          ctx.fillStyle="blue";
+                          ctx.font= "20px Arial";
+                          ctx.fillText(person[i]+' is in '+ location[i], 800, 900+i*20);
+                          ctx.stroke();
+
+                          i++;
+                    });  
                 });}, 200);
 
                 this.interval1 = setInterval(function(){
@@ -159,7 +192,7 @@ app.controller('MainController', function($scope, $http) {
                         ctx.fillStyle="green";
                         ctx.fill();
                           ctx.font= font;
-                          ctx.fillText(tag, m[result][0] + rssi_map[tag][result]*10 - radius/2 , m[result][1] + rssi_map[tag][result]*10 + 2*radius);
+                          ctx.fillText(PRESENCE_TAG_PERSON_MAPPINGS[tag]  + '(' + tag + ')', m[result][0] + rssi_map[tag][result]*10 - radius/2 , m[result][1] + rssi_map[tag][result]*10 + 2*radius);
                           ctx.stroke();
 
                         drawEdge({x: m[result][0], y: m[result][1]}, {x: m[result][0] + rssi_map[tag][result]*10, y: m[result][1] + rssi_map[tag][result]*10}, rssi_map[tag][result]);
@@ -173,6 +206,20 @@ app.controller('MainController', function($scope, $http) {
 
 
                 });}, 200);
+
+            // $scope.person = [];
+            // $scope.location = [];
+
+            var person = [];
+            var location = [];
+            var personMap;
+            this.interval2 =  setInterval(function(){
+                    $http.get('/personMap').success(function(res) {  
+                           personMap = res;
+
+                            // $scope.apply;         
+                     });
+            }, 200);
 
                 //this.endLongPolling = function(){ clearInterval(this.interval);};
 });

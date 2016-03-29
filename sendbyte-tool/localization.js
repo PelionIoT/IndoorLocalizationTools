@@ -109,7 +109,7 @@ module.exports = {
 			                filamentRSSIMap[rInfo.address][nodeIP] = buf[25];	//store the raw RSSI value
 
 			                // console.log('bulbs: ', filamentRSSIMap);
-							var root = 'aaaa::2a5:900:112:3456';
+							var root = 'aaaa::2a5:900:115:b133';//fe80000000000000000001ffff15b133
 
 			                Object.keys(filamentRSSIMap).forEach(function(p) { 
 								// console.log(b + ': ', a[b].response);

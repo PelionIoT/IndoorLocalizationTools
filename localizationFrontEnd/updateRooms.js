@@ -14,7 +14,7 @@ const PRESENCE_TAG_PERSON_MAPPINGS = {
     'aaaa::2a5:9ff:400:666': 'John',
     'aaaa::2a5:9ff:400:667': 'Jordan',
     'aaaa::2a5:9ff:400:668': 'Yash',
-    'aaaa::2a5:9ff:400:669': 'Vidhi'
+    'aaaa::2a5:9ff:400:669': 'Wallet'
 }
 
 // maximum distance away to still be considered in a room

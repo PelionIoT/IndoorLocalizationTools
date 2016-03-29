@@ -5,9 +5,9 @@ localization.start().then(function() {
 		console.log('PRESENCE: ', localization.getPresenceRSSIMap());
 		console.log('--------------------------------------------');
 	}, 2000);
-//	var interval = setInterval(function() {
-//		console.log('FILAMENT: ', localization.getFilamentRSSIMap());
-//		console.log('--------------------------------------------');
-//	}, 2000);
+	var interval = setInterval(function() {
+		console.log('FILAMENT: ', localization.getFilamentRSSIMap());
+		console.log('--------------------------------------------');
+	}, 2000);
 });
 

@@ -387,7 +387,7 @@ if(1) {
 		processInbound(msg,rinfo);
 	});
 
-	client.on('error', function(err) {
+	client.on('error', function(e) {
 		console.log(" Socket error -> OOPS: " + e.message + " --> " + e.stack);
 	});
 
