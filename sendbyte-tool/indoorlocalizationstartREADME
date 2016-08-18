@@ -1,0 +1,8 @@
+README
+
+use enableRSSIForwarding.sh
+
+then start the app
+http://10.10.102.213:8080/index.html
+
+make sure the root IP address is not different. 

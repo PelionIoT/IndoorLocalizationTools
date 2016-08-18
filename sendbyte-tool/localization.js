@@ -108,12 +108,13 @@ module.exports = {
 			                	filamentRSSIMap[rInfo.address] = {};
 			                filamentRSSIMap[rInfo.address][nodeIP] = buf[25];	//store the raw RSSI value
 
-			                // console.log('bulbs: ', filamentRSSIMap);
-							var root = 'aaaa::2a5:900:115:b133';//fe80000000000000000001ffff15b133
+			                console.log('bulbs: ', filamentRSSIMap);
+							var root = 'aaaa::2a5:900:112:3456';//fe80000000000000000001ffff15b133
 
 			                Object.keys(filamentRSSIMap).forEach(function(p) { 
 								// console.log(b + ': ', a[b].response);
 								// if(typeof filamentRSSIMap[] != 'undefined') {
+									// filamentDistanceMatrix[p] = {}
 									Object.keys(filamentRSSIMap[p]).forEach(function(c) {
 										if(c == root) {
 											// i++;
@@ -141,7 +142,7 @@ module.exports = {
 							});
 
 
-			                // console.log('filamentRSSIMap: ',filamentRSSIMap);
+			                console.log('filamentRSSIMap: ',filamentDistanceMatrix);
 							break;
 						default:
 							console.log('Protocol category - Unimplemented: ', buf[9].toString(16));

@@ -17,7 +17,7 @@ setInterval(function() {
 		var roomName = roomMapping[personName];
 
 		console.log(personName + ' is in ' + roomName);
-		request.put('http://45.56.67.145:9090/rooms/' + roomName + '/' + personName);
+		request.put('http://divya.wigwag.com:9090/rooms/' + roomName + '/' + personName);
 	}
 }, 1000)
 
